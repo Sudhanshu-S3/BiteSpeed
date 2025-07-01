@@ -57,11 +57,19 @@ A tool to build chatbots with a React frontend and Node.js backend.
 2. Connect to your GitHub repository
 3. Create a new Web Service and pick your repository
 4. Set it up like this:
-   - Build Command: `npm install && npm run heroku-postbuild`
+   - Build Command: `npm run install-all && npm run heroku-postbuild`
    - Start Command: `npm start`
    - Environment Variables:
      - `MONGODB_URL`: Your MongoDB connection string
      - `NODE_ENV`: production
+     - `PORT`: 5000
+
+Alternatively, you can use the Blueprint deployment method:
+
+1. Push the `render.yaml` file to your repository
+2. In Render dashboard, click on "Blueprint" and select your repository
+3. Follow the prompts to deploy all services defined in the blueprint
+4. After deployment, go to the Environment settings and add your `MONGODB_URL`
 
 ### Using Vercel
 
