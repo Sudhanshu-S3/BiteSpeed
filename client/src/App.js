@@ -48,7 +48,8 @@ const DnDFlow = () => {
     useEffect(() => {
         const fetchFlows = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_API_URL}/flow`);
+                const apiUrl = process.env.REACT_APP_API_URL || '/api';
+                const response = await axios.get(`${apiUrl}/flow`);
                 setFlows(response.data);
                 if (response.data.length > 0) {
                     handleSelectFlow(response.data[0]);
@@ -62,7 +63,8 @@ const DnDFlow = () => {
 
     const handleSelectFlow = async (flow) => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/flow/${flow._id}`);
+            const apiUrl = process.env.REACT_APP_API_URL || '/api';
+            const response = await axios.get(`${apiUrl}/flow/${flow._id}`);
             if (response.data) {
                 setNodes(response.data.nodes || []);
                 setEdges(response.data.edges || []);
@@ -136,7 +138,8 @@ const DnDFlow = () => {
                 edges,
             };
             try {
-                await axios.post(`${process.env.REACT_APP_API_URL}/flow/update/${currentFlow._id}`, flowData);
+                const apiUrl = process.env.REACT_APP_API_URL || '/api';
+                await axios.post(`${apiUrl}/flow/update/${currentFlow._id}`, flowData);
                 alert('Flow saved successfully!');
             } catch (error) {
                 console.error('Error saving flow:', error);
@@ -162,10 +165,11 @@ const DnDFlow = () => {
                     folder: folderName
                 };
 
-                const response = await axios.post(`${process.env.REACT_APP_API_URL}/flow/add`, newFlowData);
+                const apiUrl = process.env.REACT_APP_API_URL || '/api';
+                const response = await axios.post(`${apiUrl}/flow/add`, newFlowData);
 
                 // Refresh the flows list and select the new flow
-                const flowsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/flow`);
+                const flowsResponse = await axios.get(`${apiUrl}/flow`);
                 setFlows(flowsResponse.data);
 
                 // Find the newly created flow
