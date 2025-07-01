@@ -5,11 +5,13 @@ services:
   - type: web
     name: bitespeed-chatbot-builder
     env: node
-    buildCommand: npm run install-all && npm run heroku-postbuild
-    startCommand: npm start
+    buildCommand: npm install && cd client && npm install && npm run build && cd ../server && npm install
+    startCommand: cd server && npm start
     envVars:
       - key: NODE_ENV
         value: production
+      - key: REACT_APP_API_URL
+        value: /api
       - key: PORT
         value: 5000
       - key: MONGODB_URL
