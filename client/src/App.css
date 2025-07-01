@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.reactflow-wrapper {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.dndflow {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.react-flow__node-textNode {
+  min-width: 150px;
+  font-size: 12px;
+  background: #fff;
+  border: 1px solid #555;
+  border-radius: 4px;
+  text-align: center;
+}

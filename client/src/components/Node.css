@@ -1,0 +1,53 @@
+.node {
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.node-header {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.node-content {
+  padding: 12px;
+}
+
+.message-bubble {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  word-break: break-word;
+}
+
+.text-node .node-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.node-type-icon {
+  margin-left: auto;
+}
+
+.reactflow-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-color: #f8fafc;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
