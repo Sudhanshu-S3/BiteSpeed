@@ -1,35 +1,353 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-}
-
-.app-container {
-  display: flex;
+.dndflow {
   flex-direction: column;
+  display: flex;
   height: 100vh;
+  background-color: #f0f2f5;
+  color: #333;
 }
 
-.reactflow-wrapper {
+.dndflow.dark-mode {
+  background-color: #1e1e1e;
+  color: #f0f2f5;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  z-index: 10;
+}
+
+.dndflow.dark-mode .top-bar {
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #444;
+}
+
+.toggle-panel-btn {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.dndflow.dark-mode .toggle-panel-btn {
+  color: #f0f2f5;
+}
+
+.main-wrapper {
+  display: flex;
+  height: calc(100vh - 50px); /* Adjust height to account for top-bar */
+}
+
+.content-wrapper {
+  display: flex;
+  flex-grow: 1;
+}
+
+.dndflow .reactflow-wrapper {
   flex-grow: 1;
   height: 100%;
+  background-image: radial-gradient(circle, #ccc 1px, rgba(0, 0, 0, 0) 1px);
+  background-size: 20px 20px;
 }
 
-.dndflow {
+.dndflow.dark-mode .reactflow-wrapper {
+  background-image: radial-gradient(circle, #444 1px, rgba(0, 0, 0, 0) 1px);
+}
+
+.panels-container {
+  width: 250px;
+  border-left: 1px solid #eee;
+}
+
+.dndflow .panels-container {
+  width: 20%;
+  max-width: 300px;
+  border-left: 1px solid #ddd;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  background-color: #fff;
 }
 
-.react-flow__node-textNode {
-  min-width: 150px;
-  font-size: 12px;
-  background: #fff;
-  border: 1px solid #555;
-  border-radius: 4px;
+.dndflow.dark-mode .panels-container {
+  background-color: #2d2d2d;
+  border-left: 1px solid #444;
+}
+
+.dndflow aside {
+  border: none;
+  box-shadow: none;
+}
+
+.dndflow .dndnode {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  border: 1px solid #007bff;
+  background: white;
+  color: #007bff;
+}
+
+.dndflow.dark-mode .dndnode {
+  background: #333;
+  color: #f0f2f5;
+  border-color: #00aaff;
+}
+
+.dndflow .dndnode.input {
+  border-color: #007bff;
+}
+
+.save-button {
+  padding: 10px 20px;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+.dndflow.dark-mode .save-button {
+  background-color: #00aaff;
+  border-color: #00aaff;
+  color: #1e1e1e;
+}
+
+.dndflow.dark-mode .save-button:hover {
+  background-color: #0077cc;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
   text-align: center;
+}
+
+.text-node {
+  border: 1px solid #ddd;
+  padding: 0;
+  border-radius: 8px;
+  background: #fff;
+  width: 220px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.dndflow.dark-mode .text-node {
+  background: #333;
+  border-color: #555;
+  color: #f0f2f5;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.text-node .node-header {
+  background-color: #b2f0e3;
+  padding: 8px 12px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.dndflow.dark-mode .text-node .node-header {
+  background-color: #4a5568;
+  color: #f0f2f5;
+}
+
+.text-node .whatsapp-icon {
+  font-size: 14px;
+}
+
+.text-node .node-content {
+  padding: 12px;
+  word-wrap: break-word;
+  min-height: 40px;
+}
+
+.settings-panel {
+  padding: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+}
+
+.dndflow.dark-mode .settings-panel {
+  background-color: #2d2d2d;
+  border-left: 1px solid #444;
+}
+
+.settings-panel .back-button {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #007bff;
+  transition: color 0.2s;
+}
+
+.settings-panel .back-button:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.dndflow.dark-mode .settings-panel .back-button {
+  color: #00aaff;
+}
+
+.dndflow.dark-mode .settings-panel .back-button:hover {
+  color: #66ccff;
+}
+
+.settings-panel label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.dndflow.dark-mode .settings-panel label {
+  color: #f0f2f5;
+}
+
+.settings-panel textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  min-height: 120px;
+  margin-bottom: 12px;
+  background-color: #fff;
+  color: #333;
+}
+
+.settings-panel textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.dndflow.dark-mode .settings-panel textarea {
+  background-color: #444;
+  border-color: #555;
+  color: #f0f2f5;
+}
+
+.dndflow.dark-mode .settings-panel textarea:focus {
+  border-color: #00aaff;
+  box-shadow: 0 0 0 3px rgba(0, 170, 255, 0.25);
+}
+
+.apply-btn {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.apply-btn:hover {
+  background-color: #0069d9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.dndflow.dark-mode .apply-btn {
+  background-color: #00aaff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dndflow.dark-mode .apply-btn:hover {
+  background-color: #0088cc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.color-palette {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.color-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+  border-color: #007bff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.dndflow.dark-mode .color-swatch {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dndflow.dark-mode .color-swatch:hover {
+  border-color: #00aaff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.settings-panel .color-picker {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.dndflow.dark-mode .settings-panel .color-picker {
+  border-top: 1px solid #444;
+}
+
+.color-description {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.dndflow.dark-mode .color-description {
+  color: #aaa;
 }

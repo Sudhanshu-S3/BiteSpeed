@@ -1,0 +1,421 @@
+/* Node styles */
+.node {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.node:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.node-header {
+  padding: 8px 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.node-content {
+  padding: 12px;
+  min-height: 60px;
+}
+
+/* Text Node */
+.text-node .message-bubble {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Image Node */
+.image-node .placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 100px;
+  text-align: center;
+  color: #666;
+}
+
+.image-node .placeholder span {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+/* Table Node */
+.table-node .table-container {
+  overflow-x: auto;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.table-node table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.table-node th,
+.table-node td {
+  border: 1px solid #ddd;
+  padding: 6px 8px;
+  text-align: left;
+}
+
+.table-node th {
+  background-color: rgba(0, 0, 0, 0.05);
+  font-weight: 600;
+}
+
+/* Button Node */
+.button-node .buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.flow-button {
+  transition: all 0.2s ease;
+}
+
+.flow-button:hover {
+  background-color: #cbd5e0 !important;
+}
+
+/* DnD from panel */
+.dndnode {
+  padding: 12px;
+  border-radius: 6px;
+  background-color: white;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.dndnode:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.node-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.node-label {
+  font-weight: 500;
+}
+
+.node-type-icon {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Panels */
+.nodes-panel,
+.flows-panel {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 15px;
+  width: 280px;
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.panel-header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.panel-header h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+}
+
+.description {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.color-palette {
+  margin: 15px 0;
+}
+
+/* Flow Panel */
+.flows-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.new-flow-btn,
+.new-folder-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #60a5fa;
+  color: white;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s;
+}
+
+.new-flow-btn:hover,
+.new-folder-btn:hover {
+  background-color: #3b82f6;
+}
+
+.new-folder-input {
+  display: flex;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+.new-folder-input input {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.new-folder-input button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #60a5fa;
+  color: white;
+  cursor: pointer;
+}
+
+.flow-folder {
+  margin-bottom: 10px;
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.folder-header:hover {
+  background-color: #f3f4f6;
+}
+
+.folder-icon {
+  margin-right: 8px;
+}
+
+.folder-flows {
+  margin-left: 20px;
+}
+
+.flow-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  margin: 4px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.flow-item:hover {
+  background-color: #f3f4f6;
+}
+
+.flow-item.active {
+  background-color: #e5e7eb;
+  font-weight: 500;
+}
+
+.flow-icon {
+  margin-right: 8px;
+  font-size: 0.9rem;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background-color: #1f2937;
+  color: #f3f4f6;
+}
+
+.dark-mode .nodes-panel,
+.dark-mode .flows-panel {
+  background-color: #374151;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode .panel-header {
+  border-bottom-color: #4b5563;
+}
+
+.dark-mode .description {
+  color: #d1d5db;
+}
+
+.dark-mode .dndnode {
+  background-color: #4b5563;
+  color: #f3f4f6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .folder-header:hover,
+.dark-mode .flow-item:hover {
+  background-color: #4b5563;
+}
+
+.dark-mode .flow-item.active {
+  background-color: #6b7280;
+}
+
+.dark-mode .node {
+  background-color: #374151;
+  color: #f3f4f6;
+}
+
+.dark-mode .node-content > div {
+  background-color: rgba(75, 85, 99, 0.7) !important;
+}
+
+.dark-mode .flow-button {
+  background-color: #4b5563 !important;
+  color: #f3f4f6;
+  border-color: #6b7280;
+}
+
+.dark-mode .flow-button:hover {
+  background-color: #6b7280 !important;
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.dark-mode .top-bar {
+  background-color: #374151;
+}
+
+.save-button {
+  padding: 8px 16px;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.save-button:hover {
+  background-color: #059669;
+}
+
+.navbar-toggle-btn {
+  margin-right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #e2e8f0;
+}
+
+.dark-mode .navbar-toggle-btn {
+  background-color: #4b5563;
+  color: #f3f4f6;
+}
+
+.error-message {
+  background-color: #f87171;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 0 15px;
+  font-weight: 500;
+}
+
+/* Main layout */
+.dndflow {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.reactflow-wrapper {
+  flex: 1;
+  height: calc(100vh - 60px);
+}
+
+.panels-container {
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  z-index: 5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-wrapper {
+    flex-direction: column;
+  }
+
+  .nodes-panel,
+  .flows-panel {
+    width: auto;
+    height: auto;
+    max-height: 250px;
+  }
+
+  .panels-container {
+    position: static;
+    margin-top: 10px;
+  }
+}
