@@ -48,7 +48,7 @@ const DnDFlow = () => {
     useEffect(() => {
         const fetchFlows = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/flow');
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/flow`);
                 setFlows(response.data);
                 if (response.data.length > 0) {
                     handleSelectFlow(response.data[0]);
@@ -62,7 +62,7 @@ const DnDFlow = () => {
 
     const handleSelectFlow = async (flow) => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/flow/${flow._id}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/flow/${flow._id}`);
             if (response.data) {
                 setNodes(response.data.nodes || []);
                 setEdges(response.data.edges || []);
@@ -136,7 +136,7 @@ const DnDFlow = () => {
                 edges,
             };
             try {
-                await axios.post(`http://localhost:5000/api/flow/update/${currentFlow._id}`, flowData);
+                await axios.post(`${process.env.REACT_APP_API_URL}/flow/update/${currentFlow._id}`, flowData);
                 alert('Flow saved successfully!');
             } catch (error) {
                 console.error('Error saving flow:', error);
@@ -162,10 +162,10 @@ const DnDFlow = () => {
                     folder: folderName
                 };
 
-                const response = await axios.post('http://localhost:5000/api/flow/add', newFlowData);
+                const response = await axios.post(`${process.env.REACT_APP_API_URL}/flow/add`, newFlowData);
 
                 // Refresh the flows list and select the new flow
-                const flowsResponse = await axios.get('http://localhost:5000/api/flow');
+                const flowsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/flow`);
                 setFlows(flowsResponse.data);
 
                 // Find the newly created flow

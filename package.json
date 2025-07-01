@@ -1,0 +1,28 @@
+{
+  "name": "bitespeed-chatbot-builder",
+  "version": "1.0.0",
+  "description": "Chatbot builder application with React frontend and Node.js backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server && npm start",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "client": "cd client && npm start",
+    "server": "cd server && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "keywords": [
+    "chatbot",
+    "react",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
